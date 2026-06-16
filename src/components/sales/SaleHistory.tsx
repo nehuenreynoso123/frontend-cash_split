@@ -38,11 +38,11 @@ export default function SaleHistory() {
         <table className="w-full text-left border-collapse">
           <thead>
             <tr className="bg-surface-bright border-b border-outline-variant">
-              {['Fecha', 'Producto', 'Cant.', 'Total', 'Estado'].map((h) => (
+              {['Fecha', 'Producto', 'Cant.', 'Total', 'Ganancia', 'Estado'].map((h) => (
                 <th
                   key={h}
                   className={`px-6 py-4 font-label-caps text-on-surface-variant uppercase tracking-wider ${
-                    h === 'Cant.' || h === 'Total' ? 'text-right' : h === 'Estado' ? 'text-center' : ''
+                    h === 'Cant.' || h === 'Total' || h === 'Ganancia' ? 'text-right' : h === 'Estado' ? 'text-center' : ''
                   }`}
                 >
                   {h}
@@ -53,13 +53,13 @@ export default function SaleHistory() {
           <tbody className="divide-y divide-outline-variant/30">
             {loading ? (
               <tr>
-                <td colSpan={5} className="px-6 py-12 text-center text-on-surface-variant">
+                <td colSpan={6} className="px-6 py-12 text-center text-on-surface-variant">
                   Cargando ventas...
                 </td>
               </tr>
             ) : error ? (
               <tr>
-                <td colSpan={5} className="px-6 py-12 text-center text-error">
+                <td colSpan={6} className="px-6 py-12 text-center text-error">
                   {error}
                 </td>
               </tr>
@@ -78,6 +78,9 @@ export default function SaleHistory() {
                   <td className="px-6 py-4 text-right font-data-mono text-primary font-semibold">
                     {formatCurrency(sale.precio)}
                   </td>
+                  <td className="px-6 py-4 text-right font-data-mono text-green-600 font-semibold">
+                    {sale.ganancia != null ? formatCurrency(sale.ganancia) : '—'}
+                  </td>
                   <td className="px-6 py-4 text-center">
                     <Badge variant="success">Pagado</Badge>
                   </td>
@@ -86,7 +89,7 @@ export default function SaleHistory() {
             )}
             {!loading && !error && paginated.length === 0 && (
               <tr>
-                <td colSpan={5} className="px-6 py-12 text-center text-on-surface-variant">
+                <td colSpan={6} className="px-6 py-12 text-center text-on-surface-variant">
                   No hay ventas registradas todavía.
                 </td>
               </tr>

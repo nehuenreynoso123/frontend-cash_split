@@ -2,6 +2,7 @@
 import AppLayout from '../layouts/AppLayout.astro';
 import SaleForm from '../components/sales/SaleForm';
 import SaleHistory from '../components/sales/SaleHistory';
+import GananciaTotalCard from '../components/sales/GananciaTotalCard';
 ---
 
 <AppLayout
@@ -12,13 +13,7 @@ import SaleHistory from '../components/sales/SaleHistory';
   <div class="max-w-7xl mx-auto space-y-gutter">
     <!-- Quick Stats -->
     <div class="grid grid-cols-1 md:grid-cols-4 gap-gutter">
-      <div class="bg-surface-container-lowest border border-outline-variant p-6 rounded-xl flex flex-col gap-2">
-        <span class="text-on-surface-variant font-label-caps uppercase tracking-wider">Ventas Hoy</span>
-        <div class="flex items-baseline justify-between">
-          <span class="font-data-mono text-display-lg text-primary">$1,240.00</span>
-          <span class="text-secondary flex items-center font-body-sm">+12% <span class="material-symbols-outlined text-[16px]">trending_up</span></span>
-        </div>
-      </div>
+      <GananciaTotalCard client:load />
       <div class="bg-surface-container-lowest border border-outline-variant p-6 rounded-xl flex flex-col gap-2">
         <span class="text-on-surface-variant font-label-caps uppercase tracking-wider">Tickets Emitidos</span>
         <div class="flex items-baseline justify-between">

@@ -136,7 +136,7 @@ export default function SaleForm({ onSaleComplete }: SaleFormProps) {
             )}
           </div>
           <div className="space-y-2">
-            <label className="font-label-caps text-on-surface-variant uppercase">Precio Unitario</label>
+            <label className="font-label-caps text-on-surface-variant uppercase">Precio Venta Unidad</label>
             <div className="relative">
               <span className="absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant font-data-mono">$</span>
               <input

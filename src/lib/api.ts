@@ -118,6 +118,7 @@ export interface Venta {
   producto_id: number;
   cantidad: number;
   fecha: string;
+  ganancia?: number;
 }
 
 export async function listVentas(): Promise<Venta[]> {
